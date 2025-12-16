@@ -1,0 +1,148 @@
+/* Header with lighter orange background and centered heading */
+.principal-header {
+  padding: 70px 20px;
+  background: linear-gradient(90deg, #fff9f3, #ffead6);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Center heading horizontally */
+.principal-header h1 {
+  color: #113c63;
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+
+/* Breadcrumb below heading, left aligned but centered block */
+.breadcrumb {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #6b6b6b;
+  text-align: left;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+/* Breadcrumb links style */
+.breadcrumb-link {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #ff7a00;
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 16px;
+  padding: 0;
+}
+
+.breadcrumb-link:hover {
+  color: #ff4500;
+  text-decoration: none;
+}
+
+.breadcrumb span {
+  user-select: none;
+}
+
+/* Main section */
+.vision-mission-section {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+/* Buttons container and buttons style */
+.buttons-container {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.buttons-container button {
+  background-color: #f5f5f5;
+  border: none;
+  padding: 12px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  color: #222;
+  font-weight: 600;
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.buttons-container button:hover {
+  background-color: #eaeaea;
+}
+
+.buttons-container button.active {
+  background-color: #ff6600;
+  color: white;
+  border: 1px solid #000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+}
+
+/* Content wrapper to align text and image side by side */
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+/* Text content side with vertical centering */
+.text-content {
+  flex: 1 1 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  color: #113c63;
+}
+
+.text-content h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+.text-content p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* Image on right side */
+.content-wrapper img {
+  flex: 1 1 380px;
+  max-width: 380px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Responsive for smaller screens: stack vertically and center */
+@media (max-width: 900px) {
+  .content-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  .text-content {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .content-wrapper img {
+    max-width: 90%;
+  }
+}

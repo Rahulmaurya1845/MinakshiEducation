@@ -1,0 +1,232 @@
+/* =====================================
+   ROOT VARIABLES (Synced with Footer Theme)
+===================================== */
+:root {
+  --primary-blue: #2c3e8f;
+  --primary-purple: #6a11cb;
+  --accent-blue: #4a6bff;
+  --accent-purple: #8a2be2;
+
+  --white: #ffffff;
+  --gray-light: #e6e9f0;
+  --gray-dark: #4a5568;
+
+  --dark-bg: #1a2035;
+
+  --premium-gradient: linear-gradient(
+    135deg,
+    var(--primary-purple) 0%,
+    var(--primary-blue) 100%
+  );
+
+  --shadow-light: 0 4px 12px rgba(42, 67, 191, 0.15);
+  --shadow-medium: 0 8px 20px rgba(42, 67, 191, 0.25);
+  --shadow-heavy: 0 12px 30px rgba(42, 67, 191, 0.35);
+
+  --border-radius: 8px;
+  --transition-fast: all 0.2s ease;
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =====================================
+   GENERAL HEADER STYLES
+===================================== */
+.header {
+  font-family: var(--font-family);
+  animation: slideInFromTop 1.2s var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  background: var(--premium-gradient);
+  color: var(--white);
+}
+
+@keyframes slideInFromTop {
+  from { opacity: 0; transform: translateY(-50px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* =====================================
+   CONTAINER
+===================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =====================================
+   TOPBAR (FIXED RIGHT ALIGN)
+===================================== */
+.topbar {
+  background: var(--premium-gradient);
+  color: var(--white);
+  font-size: 13px;
+  padding: 8px 0;
+  box-shadow: var(--shadow-light);
+}
+
+/* IMPORTANT FIX */
+.topbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Left */
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+/* Right */
+.topbar-right {
+  display: flex;
+  gap: 18px;
+  margin-left: auto;
+}
+
+.topbar-right a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--border-radius);
+  transition: var(--transition-smooth);
+}
+
+.topbar-right a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* =====================================
+   NAVBAR
+===================================== */
+.navbar {
+  background: var(--premium-gradient);
+  padding: 8px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  box-shadow: var(--shadow-medium);
+}
+
+.navbar .container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+/* Logo */
+.logo img {
+  height: 48px;
+  max-width: 160px;
+  transition: var(--transition-smooth);
+}
+
+/* Menu Toggle */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  color: var(--white);
+  cursor: pointer;
+}
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item a,
+.dropdown-btn {
+  color: var(--white);
+  padding: 10px 16px;
+  border-radius: var(--border-radius);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.nav-item a:hover,
+.dropdown-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Dropdown */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--dark-bg);
+  min-width: 200px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-heavy);
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu a {
+  padding: 14px 20px;
+  display: block;
+  color: var(--white);
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 15px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .topbar .container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .topbar-right {
+    margin-left: 0;
+  }
+}
+
+/* Accessibility */
+.nav-item a:focus,
+.dropdown-btn:focus,
+.topbar-right a:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}

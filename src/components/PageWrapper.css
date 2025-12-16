@@ -1,0 +1,26 @@
+.page-wrapper {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.page-wrapper.enter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-wrapper.exit {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+/* Accessibility: Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .page-wrapper {
+    transition: none;
+    transform: none;
+  }
+}

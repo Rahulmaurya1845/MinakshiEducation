@@ -1,0 +1,36 @@
+.syllabus-page {
+  font-family: Arial, sans-serif;
+}
+
+.syllabus-banner {
+ background: linear-gradient(90deg, #fff9f3, #ffead6);/* soft gradient like your screenshot */
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.syllabus-banner h1 {
+  font-size: 36px;
+  color: #1f4e79; /* dark blue text similar to your site */
+  margin-bottom: 10px;
+}
+
+.breadcrumb {
+  font-size: 16px;
+  color: #555;
+}
+
+.breadcrumb a {
+  color: #1f4e79;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.syllabus-content {
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+}

@@ -1,0 +1,179 @@
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  background: #020617;
+  color: #ffffff;
+}
+
+/* blurred background layer from current slide */
+.hero-bg-blur {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  filter: blur(26px) brightness(0.55);
+  transform: scale(1.1);
+  z-index: 0;
+  transition: background-image 0.7s ease;
+}
+
+/* Slide wrapper */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  transition: opacity 1s ease;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.hero-slide.inactive {
+  pointer-events: none;
+}
+
+/* IMAGE */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transform: scale(1.08);
+  transition: transform 7s ease; /* slow cinematic zoom */
+}
+
+/* Active slide image slightly zooms in */
+.hero-slide.active .hero-image {
+  transform: scale(1.02);
+}
+
+/* Overlay gradient */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(15, 23, 42, 0.25),
+      rgba(15, 23, 42, 0.7)
+    ),
+    radial-gradient(
+      circle at top left,
+      rgba(59, 130, 246, 0.25),
+      transparent 65%
+    );
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+  color: #e5e7eb;
+  background: rgba(15, 23, 42, 0.6);
+  border: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.arrow:hover {
+  background: rgba(15, 23, 42, 0.9);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.6);
+}
+
+.arrow.left {
+  left: 22px;
+}
+
+.arrow.right {
+  right: 22px;
+}
+
+/* Dots */
+.hero-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: rgba(229, 231, 235, 0.4);
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  width: 24px;
+  background: #ffffff;
+}
+
+/* Responsive heights */
+@media (min-width: 1024px) {
+  .hero-slider {
+    height: 620px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-slider {
+    height: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-slider {
+    height: 360px;
+  }
+
+  .arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-slider {
+    height: 300px;
+  }
+
+  .hero-dots {
+    bottom: 14px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-blur,
+  .hero-slide,
+  .hero-image {
+    transition: none;
+  }
+}

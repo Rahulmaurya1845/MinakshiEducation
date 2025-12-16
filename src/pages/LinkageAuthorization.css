@@ -1,0 +1,142 @@
+.linkage-container {
+  width: 100%;
+  background-color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #111827;
+}
+
+/* ============ HEADER BANNER ============ */
+.page-header {
+  padding: 60px 20px;
+  text-align: center;
+  background: linear-gradient(90deg, #fff9f3, #ffead6);
+}
+
+.page-header h1 {
+  font-size: 38px;
+  font-weight: 600;
+  color: #113c63;
+}
+
+.breadcrumb {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #6b6b6b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb-home {
+  text-decoration: none;
+  color: #ff7b00;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb-home:hover {
+  color: #ff4500;
+}
+
+.breadcrumb-separator {
+  color: #9ca3af;
+}
+
+.breadcrumb-current {
+  color: #6b6b6b;
+}
+
+/* ============ CONTENT AREA ============ */
+.linkage-content {
+  padding: 50px 20px 60px 20px;
+  text-align: center;
+}
+
+.description {
+  max-width: 850px;
+  margin: 0 auto 40px auto;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* ============ IMAGE GRID ============ */
+.image-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.image-card {
+  position: relative;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Image size */
+.image-card img {
+  width: 330px;
+  height: 230px;
+  object-fit: contain;
+  padding: 18px;
+  background: white;
+  display: block;
+}
+
+/* Caption pill */
+.image-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%) translateY(8px);
+  background: rgba(15, 23, 42, 0.92);
+  color: #f9fafb;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Hover effect */
+.image-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+.image-card:hover .image-caption {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ============ SCROLL ANIMATION ============ */
+.zoom-in {
+  opacity: 0;
+  transform: scale(0.96) translateY(12px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.zoom-in.show {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* ============ MOBILE RESPONSIVE FIX ============ */
+@media (max-width: 600px) {
+  .page-header h1 {
+    font-size: 32px;
+  }
+
+  .image-card img {
+    width: 90%;
+    height: auto;
+  }
+}

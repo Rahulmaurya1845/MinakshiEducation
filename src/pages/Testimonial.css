@@ -1,0 +1,127 @@
+/* ===== BASE ===== */
+.testimonial-container {
+  width: 100%;
+  background: #f8f9fc;
+}
+
+/* ===== HEADER ===== */
+.page-header {
+  padding: 70px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #fff6ec, #ffe3c8);
+}
+
+.page-header h1 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #113c63;
+  letter-spacing: 0.5px;
+}
+
+.breadcrumb {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #666;
+}
+
+.breadcrumb-home {
+  text-decoration: none;
+  color: #ff7b00;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb-home:hover {
+  color: #ff4500;
+}
+
+/* ===== TESTIMONIAL CARD ===== */
+.testimonial-box {
+  max-width: 1000px;
+  margin: 70px auto;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  background: #ffffff;
+  padding: 50px;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.testimonial-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== IMAGE ===== */
+.testimonial-image img {
+  width: 320px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* ===== TEXT ===== */
+.testimonial-text h3 {
+  font-size: 18px;
+  color: #ff7b00;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+
+.testimonial-text p {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.75;
+  margin-bottom: 25px;
+}
+
+.student-info h4 {
+  font-size: 21px;
+  color: #113c63;
+  font-weight: 700;
+}
+
+.student-info span {
+  font-size: 15px;
+  color: #777;
+}
+
+/* ===== ANIMATION ===== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .testimonial-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 35px;
+  }
+
+  .testimonial-image img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header h1 {
+    font-size: 32px;
+  }
+
+  .testimonial-text p {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,255 @@
+/* ------------ BASE SECTION ------------ */
+.payment-section {
+  width: 100%;
+  background-color: #f9fafb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #0f172a;
+}
+
+/* ------------ HEADER AREA ------------ */
+.payment-header {
+  width: 100%;
+  padding: 70px 20px 60px 20px;
+  background: linear-gradient(115deg, #fff9f3, #ffead6);
+}
+
+.payment-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.payment-header h1 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #113c63;
+  margin-bottom: 8px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14px;
+  margin-top: 2px;
+  color: #6b7280;
+}
+
+.breadcrumb-home {
+  text-decoration: none;
+  color: #f97316;
+  font-weight: 600;
+}
+
+.breadcrumb-home:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  color: #9ca3af;
+}
+
+.breadcrumb-current {
+  color: #6b7280;
+}
+
+.payment-subtitle {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #4b5563;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ------------ MAIN CONTENT LAYOUT ------------ */
+.payment-content {
+  max-width: 1100px;
+  margin: 40px auto 70px auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* ------------ QR BOX ------------ */
+.qr-box {
+  flex: 1;
+  min-width: 280px;
+  max-width: 460px;
+}
+
+.qr-title {
+  background: #134b7a;
+  color: #ffffff;
+  padding: 14px 18px;
+  border-radius: 12px 12px 0 0;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+}
+
+.qr-card {
+  background-color: #ffffff;
+  padding: 18px 18px 16px 18px;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-top: none;
+}
+
+.qr-image-wrapper {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px dashed #d1d5db;
+  padding: 14px;
+  background: linear-gradient(135deg, #f9fafb, #fefce8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-image {
+  width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+}
+
+.qr-note {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.qr-warning {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #b91c1c;
+}
+
+/* ------------ BANK DETAILS BOX ------------ */
+.bank-details-box {
+  flex: 1.1;
+  min-width: 280px;
+  max-width: 520px;
+}
+
+.bank-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #f97316;
+  margin-bottom: 6px;
+}
+
+.bank-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 14px;
+}
+
+.bank-table-wrapper {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  overflow: hidden;
+}
+
+/* ------------ TABLE STYLES ------------ */
+.bank-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.bank-table th,
+.bank-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.bank-table th {
+  width: 45%;
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: #111827;
+}
+
+.bank-table td {
+  width: 55%;
+  color: #374151;
+}
+
+/* Alternate row color for better readability */
+.bank-table tbody tr:nth-child(even) td {
+  background-color: #f3f4f6;
+}
+
+.bank-table tbody tr:last-child th,
+.bank-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ------------ NOTES UNDER TABLE ------------ */
+.payment-notes {
+  margin-top: 14px;
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* ------------ RESPONSIVE DESIGN ------------ */
+@media (max-width: 992px) {
+  .payment-content {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .payment-header {
+    padding: 60px 16px 48px 16px;
+  }
+
+  .payment-header h1 {
+    font-size: 32px;
+  }
+
+  .payment-subtitle {
+    font-size: 14px;
+  }
+
+  .payment-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .qr-box,
+  .bank-details-box {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .payment-header h1 {
+    font-size: 28px;
+  }
+
+  .qr-title {
+    font-size: 16px;
+  }
+
+  .bank-title {
+    font-size: 18px;
+  }
+
+  .bank-table th,
+  .bank-table td {
+    padding: 10px 12px;
+  }
+}
