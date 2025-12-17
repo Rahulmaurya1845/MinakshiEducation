@@ -13,25 +13,36 @@ const slides = [slide1, slide2, slide3, slide4, slide5, slide6];
 export default function HeroSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef(null);
+  const isPausedRef = useRef(false);
 
+  /* ===== START SLIDER ===== */
+  const startSlider = () => {
+    stopSlider(); // safety
+    intervalRef.current = setInterval(() => {
+      if (!isPausedRef.current) {
+        setCurrentIndex(prev => (prev + 1) % slides.length);
+      }
+    }, 3000); // ✅ 3 seconds
+  };
+
+  /* ===== STOP SLIDER ===== */
+  const stopSlider = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
+
+  /* ===== AUTO START ON MOUNT ===== */
   useEffect(() => {
-    startAutoSlide();
-    return stopAutoSlide;
+    startSlider();
+    return stopSlider;
   }, []);
 
-  const startAutoSlide = () => {
-    stopAutoSlide();
-    intervalRef.current = setInterval(() => {
-      setCurrentIndex(prev => (prev + 1) % slides.length);
-    }, 6000);
-  };
-
-  const stopAutoSlide = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-  };
-
   const prevSlide = () => {
-    setCurrentIndex(prev => (prev === 0 ? slides.length - 1 : prev - 1));
+    setCurrentIndex(prev =>
+      prev === 0 ? slides.length - 1 : prev - 1
+    );
   };
 
   const nextSlide = () => {
@@ -41,11 +52,15 @@ export default function HeroSlider() {
   return (
     <div
       className="hero-slider"
-      onMouseEnter={stopAutoSlide}
-      onMouseLeave={startAutoSlide}
+      onMouseEnter={() => {
+        isPausedRef.current = true;
+      }}
+      onMouseLeave={() => {
+        isPausedRef.current = false;
+      }}
       aria-label="Hero Image Slider"
     >
-      {/* subtle blurred background based on current slide */}
+      {/* Blurred background */}
       <div
         className="hero-bg-blur"
         style={{ backgroundImage: `url(${slides[currentIndex]})` }}
@@ -62,9 +77,8 @@ export default function HeroSlider() {
             src={slide}
             alt={`Slide ${index + 1}`}
             className="hero-image"
+            draggable="false"
           />
-
-          {/* gradient overlay for text readability / depth */}
           <div className="hero-overlay" />
         </div>
       ))}

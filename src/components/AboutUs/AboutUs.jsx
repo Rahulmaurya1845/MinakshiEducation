@@ -1,3 +1,4 @@
+// AboutUs.jsx - Perfect Image & Spacing Fixed
 import React, { useRef, useEffect, useState } from "react";
 import "./AboutUs.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
@@ -27,7 +28,7 @@ const AboutUs = () => {
     rootMargin: "0px 0px -100px 0px",
   });
 
-  // Animated counting effect
+  // Smooth Counter Animation
   useEffect(() => {
     if (!contentVisible) {
       setYearsCount(0);
@@ -36,8 +37,8 @@ const AboutUs = () => {
       return;
     }
 
-    const duration = 2000; // 2 seconds
-    const steps = 80; // smoother steps
+    const duration = 2500;
+    const steps = 100;
     const stepDuration = duration / steps;
 
     let currentStep = 0;
@@ -48,11 +49,9 @@ const AboutUs = () => {
 
       if (currentStep <= steps) {
         const progress = currentStep / steps;
-
         setYearsCount(Math.floor(4 * progress));
         setStudentsCount(Math.floor(500 * progress));
         setSuccessRate(Math.floor(95 * progress));
-
         currentStep++;
         setTimeout(animateCounter, stepDuration);
       } else {
@@ -77,114 +76,85 @@ const AboutUs = () => {
       aria-labelledby="about-heading"
     >
       <div className="about-container">
-        {/* Left Image */}
+        {/* Perfect Image Section */}
         <div
           ref={imageRef}
           className={`about-image-container ${imageVisible ? "visible" : ""}`}
-          data-animation-delay="0"
         >
-          <div className="image-wrapper">
+          <div className="image-frame">
             <img
               src={img12}
-              alt="Meenakshi Education Sansthan campus and students"
+              alt="Meenakshi Education Sansthan campus"
               className="about-image"
               loading="lazy"
             />
-            <div className="image-overlay"></div>
-            <div className="image-decoration">
-              <div className="decoration-circle"></div>
-              <div className="decoration-circle"></div>
-            </div>
+            <div className="image-shine"></div>
+            <div className="image-border"></div>
           </div>
         </div>
 
-        {/* Right Content */}
+        {/* Compact Content Section */}
         <div
           ref={contentRef}
           className={`about-content-container ${contentVisible ? "visible" : ""}`}
         >
-          <div
-            className={`about-badge ${contentVisible ? "visible" : ""}`}
-            data-animation-delay="100"
+          <div className={`about-badge ${contentVisible ? "visible" : ""}`}>
+            <div className="badge-dot"></div>
+            <span>About Institution</span>
+          </div>
+
+          <h2
+            id="about-heading"
+            className={`about-heading ${contentVisible ? "visible" : ""}`}
           >
-            <span className="badge-icon">🏫</span>
-            <span className="badge-text">About Institution</span>
-          </div>
+            <span>Meenakshi Education</span>
+            <span className="highlight">Sansthan - Salumber</span>
+          </h2>
 
-          <div className="heading-wrapper">
-            <h2
-              id="about-heading"
-              className={`about-heading ${contentVisible ? "visible" : ""}`}
-              data-animation-delay="200"
-            >
-              <span className="heading-line">Meenakshi Education</span>
-              <span className="heading-line highlight">
-                Sansthan - Salumber
-              </span>
-            </h2>
-
-            <div
-              className={`heading-underline ${
-                contentVisible ? "visible" : ""
-              }`}
-              data-animation-delay="300"
-            ></div>
-          </div>
-
-          <div className="text-container">
-            <p
-              className={`about-text ${contentVisible ? "visible" : ""}`}
-              data-animation-delay="400"
-            >
-              <strong>Meenakshi Education Sansthan</strong> is a premier
-              educational institute established in 2019 with a vision to provide
-              quality education and empower students to excel in competitive
-              examinations.
+          <div className="about-description">
+            <p className={`about-text ${contentVisible ? "visible" : ""}`}>
+              <strong>Meenakshi Education Sansthan</strong> is a premier educational 
+              institute established in 2019 with a vision to provide quality education 
+              and empower students to excel in competitive examinations.
             </p>
 
-            <p
-              className={`about-text ${contentVisible ? "visible" : ""}`}
-              data-animation-delay="500"
-            >
-              The institution focuses on intellectual growth, innovation, and
-              practical learning so that students become skilled professionals
-              and contribute meaningfully to society.
+            <p className={`about-text ${contentVisible ? "visible" : ""}`}>
+              The institution focuses on intellectual growth, innovation, and practical 
+              learning so students become skilled professionals and contribute 
+              meaningfully to society.
             </p>
+          </div>
 
-            <div
-              className={`about-stats ${contentVisible ? "visible" : ""}`}
-              data-animation-delay="600"
-            >
-              <div className="stat-item">
-                <div className="stat-number">
-                  <span className="counting-number">{yearsCount}</span>+
-                </div>
-                <div className="stat-label">Years of Excellence</div>
+          {/* Executive Stats - Compact */}
+          <div className={`about-stats ${contentVisible ? "visible" : ""}`}>
+            <div className="stat-item">
+              <div className="stat-value">
+                <span className="counter">{yearsCount}</span>
+                <span className="suffix">+</span>
               </div>
-              <div className="stat-item">
-                <div className="stat-number">
-                  <span className="counting-number">{studentsCount}</span>+
-                </div>
-                <div className="stat-label">Students Enrolled</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">
-                  <span className="counting-number">{successRate}</span>%
-                </div>
-                <div className="stat-label">Success Rate</div>
-              </div>
+              <div className="stat-label">Years Excellence</div>
             </div>
-          </div>
-
-          <div className="content-decoration">
-            <div className="floating-element"></div>
-            <div className="floating-element"></div>
+            <div className="stat-item">
+              <div className="stat-value">
+                <span className="counter">{studentsCount}</span>
+                <span className="suffix">K+</span>
+              </div>
+              <div className="stat-label">Students Enrolled</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-value">
+                <span className="counter">{successRate}</span>%
+              </div>
+              <div className="stat-label">Success Rate</div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="section-background">
-        <div className="bg-pattern"></div>
+      {/* Subtle Background Elements */}
+      <div className="background-elements">
+        <div className="bg-circle-1"></div>
+        <div className="bg-circle-2"></div>
         <div className="bg-gradient"></div>
       </div>
     </section>
