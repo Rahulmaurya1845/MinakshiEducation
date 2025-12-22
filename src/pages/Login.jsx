@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-
-// import loginBg from "../images/randomLoginBg.jpg";
 import logo from "../images/logo.png";
 
 const Login = () => {
@@ -25,15 +23,16 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container" style={{ backgroundImage: `url()` }}>
+    <div className="login-container">
       <div className="login-box">
-
-        {/* PERFECT CENTER LOGO */}
+        {/* LOGO */}
         <div className="logo-wrapper">
           <img src={logo} alt="Logo" className="login-logo" />
         </div>
 
-        <h2 className="title-text">Meenakshi Education Sansthan - Salumber</h2>
+        <h2 className="title-text">
+          Meenakshi Education Sansthan - Salumber
+        </h2>
 
         <form onSubmit={handleLogin}>
           <label>Your User Id *</label>
@@ -54,11 +53,15 @@ const Login = () => {
             placeholder="Enter Password"
           />
 
-          {/* SHOW + FORGOT IN ONE LINE */}
+          {/* SHOW + FORGOT */}
           <div className="password-row">
-            <span className="show-pass" onClick={() => setShowPass(!showPass)}>
-              👁 Show Password
-            </span>
+            <button
+              type="button"
+              className="show-pass"
+              onClick={() => setShowPass((prev) => !prev)}
+            >
+              {showPass ? "Hide Password" : "👁 Show Password"}
+            </button>
 
             <Link to="/forgot-password" className="forgot-link">
               Forgot Your Password?
@@ -66,7 +69,9 @@ const Login = () => {
           </div>
 
           <div className="btn-row">
-            <button type="submit" className="login-btn">🔐 Login</button>
+            <button type="submit" className="login-btn">
+              🔐 Login
+            </button>
 
             <button
               type="button"
